@@ -1,0 +1,32 @@
+class Solution {
+public:
+
+    string expandCen(string s,int left,int right){
+        while(left>=0 && right<s.size() && s[left] == s[right]){
+            left--;
+            right++;
+        }
+        return s.substr(left+1,right-left-1);
+    }
+
+
+    string longestPalindrome(string s) {
+       if(s.size()  <= 1) return s;
+
+       string maxStr = s.substr(0,1);
+
+       for(int i=0;i<s.size();i++){
+        string odd = expandCen(s,i,i);
+        string even = expandCen(s,i,i+1);
+
+        if(odd.size() > maxStr.size()){
+            maxStr = odd;
+        }
+        if(even.size() > maxStr.size()){
+            maxStr = even;
+        }
+       }
+       return maxStr;
+
+    }
+};
