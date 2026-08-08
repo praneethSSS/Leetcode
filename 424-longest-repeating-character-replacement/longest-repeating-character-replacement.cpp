@@ -10,10 +10,10 @@ public:
             maxfreq = max(maxfreq , mpp[s[r]]);
             while((r - l + 1) - maxfreq > k){
                 mpp[s[l]]--;
-                maxfreq = 0;
-                for(char c = 'A'; c <= 'Z'; c++){
-                    maxfreq = max(maxfreq, mpp[c]);
-}
+                // maxfreq = 0;
+                // for(char c = 'A'; c <= 'Z'; c++){
+                //     maxfreq = max(maxfreq, mpp[c]);
+                // }
                 l = l+1;
             }
 
