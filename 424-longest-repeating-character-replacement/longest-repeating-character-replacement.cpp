@@ -19,8 +19,9 @@ public:
 
             if((r-l+1) - maxfreq <= k){
                 maxLen = max(maxLen,r-l+1);
-                r++;
+                // r++;
             }
+            r++;
         }
         return maxLen;
     }
