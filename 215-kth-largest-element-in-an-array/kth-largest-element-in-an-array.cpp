@@ -8,10 +8,14 @@ public:
         }
 
         for(int i=k;i<nums.size();i++){
-            if(p.top() < nums[i]){
+            p.push(nums[i]);
+            if(p.size() > k){
                 p.pop();
-                p.push(nums[i]);
             }
+            // if(p.top() < nums[i]){
+            //     p.pop();
+            //     p.push(nums[i]);
+            // }
         }
         return p.top();
     }
