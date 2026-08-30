@@ -11,25 +11,29 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        ListNode* first = head;
-        ListNode* second = head;
+        if(head == NULL || head->next == NULL) return NULL;
 
-        if(head->next == NULL) return NULL;
-        for(int i=0;i<n;i++){
-            //it means that we reached last element, so we need to remove head.
-            if(second->next == NULL){
-                head = first->next;
-                return head;
-            }
-            second = second->next;
+        ListNode* temp = head;
+        int size = 0;
+        while(temp!=NULL){
+            size++;
+            temp = temp->next;
+        }
+        int pos = size - n;
+
+        if(n == size) return head->next;
+
+        ListNode* curr = head;
+        ListNode* prev = head;
+        while(pos--){
+            prev = curr;
+            curr = curr->next;
         }
 
-        while(second->next!=NULL){
-            first = first->next;
-            second = second->next;
-        }
-
-        first->next = first->next->next;
+        prev->next = curr->next;
         return head;
+        
+
+
     }
 };
