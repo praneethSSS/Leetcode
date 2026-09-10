@@ -13,24 +13,18 @@ public:
             if(mp[s[end]] >= 0){
                 total--;
             }
-
             while(!total && start <= end){
-               if(ans > end-start+1){
-                ans = end - start + 1;
-                index = start;
-               }
+                if(ans > end - start + 1){
+                    ans = end - start + 1;
+                    index = start;
+                }
                 mp[s[start]]++;
-
                 if(mp[s[start]] > 0) total++;
-
                 start++;
-                
 
             }
-
-            
-
             end++;
+
         }
 
         if(index == -1) return "";
